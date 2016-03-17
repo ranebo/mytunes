@@ -2,6 +2,26 @@
 var SongQueue = Songs.extend({
 
   initialize: function() {
+    this.on('add', function() {
+      if (this.length === 1) {
+        this.playFirst();
+      }
+    });
+
+
+
+
+    this.on('remove', function() {
+      if (this.length > 0) {
+        this.playFirst();        
+      }
+    });
+
+
+  },
+
+  playFirst: function() {
+    this.models[0].play();
   }
 
 });
