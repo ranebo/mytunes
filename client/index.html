@@ -17,16 +17,18 @@
     <script src="views/PlayerView.js"></script>
     <script src="views/LibraryView.js"></script>
     <script src="views/LibraryEntryView.js"></script>
+    <script src="views/SongQueueView.js"></script>
+    <script src="views/SongQueueEntryView.js"></script>
     <script src="views/AppView.js"></script>
 
     <script>
       $(function() {
         // set up model objects
-        var library = new Songs(songData);
-        var app = new AppModel({library: library});
+        var library = new Songs(songData); // library is an instance of the Songs collection, which contains song models
+        var app = new AppModel({library: library}); // app is an instance of AppModel that contains a library collection property (because we passed in the library collection instance) 
 
         // build a view for the top level of the whole app
-        var appView = new AppView({model: app});
+        var appView = new AppView({model: app}); //  appView is a view instance of AppView that has a property model set to the app instance model
 
         // put the view onto the screen
         $('body').append(appView.render());
