@@ -30,6 +30,9 @@ var SongQueue = Songs.extend({
 
   removeSong: function(song) {
     this.remove(song);
+    if (this.length === 0) {
+      this.trigger('stop', this);
+    }                                    
   },
 
   removeFirstSong: function() {
@@ -46,4 +49,4 @@ var SongQueue = Songs.extend({
     }
   }
 
-});
+});                                                                    
