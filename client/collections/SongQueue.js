@@ -7,7 +7,6 @@ var SongQueue = Songs.extend({
         this.playFirst();
       }
     });
-
     this.on('remove', function() {
       if (this.length > 0) {
         this.playFirst();        
@@ -36,6 +35,7 @@ var SongQueue = Songs.extend({
   },
 
   removeFirstSong: function() {
+    this.models[0].set('count', this.models[0].get('count') + 1);
     this.shift();
   },
 
